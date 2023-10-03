@@ -1,0 +1,44 @@
+\section{Herramientas a instalar}
+
+\begin{itemize}
+	\item 
+	Puerto USB
+	\item
+	Sistema Operativo: Windows 10/11 o 
+	distribucion \href{https://ubuntu.com/}{Ubuntu} 18.04, 20.04, 22.04
+	\item 
+	Lenguaje de programación: C
+	\item 
+	Entorno de Desarrollo: \href{https://visualstudio.microsoft.com/es/}{Visual Studio}, 
+	\href{https://code.visualstudio.com/}{Visual Studio Code} o Terminal
+	\item
+	Azure Sphere SDK en \href{https://learn.microsoft.com/en-us/azure-sphere/install/install-sdk}{Windows} o \href{https://learn.microsoft.com/en-us/azure-sphere/install/install-sdk-linux}{Linux}
+\end{itemize}
+
+\subsection{Instalación}
+\subsubsection{Windows}
+\begin{enumerate}
+	\item 
+	Conectar el microcontrolador, Windows automaticamente instalara los drivers necesarios (En caso de que no se puede usar los drivers de \href{https://www.ftdichip.com/Drivers/VCP.htm}{FTDI})
+	\item 
+	Instalar el \href{https://aka.ms/AzureSphereSDKDownload/Windows}{SDK}
+	\item 
+	Instalar \href{https://visualstudio.microsoft.com/downloads/}{Visual Studio 2022}
+	\item 
+	Instalar la extensión de \href{https://marketplace.visualstudio.com/items?itemName=AzureSphereTeam.AzureSphereSDKforVisualStudio2022}{Azure Sphere} para Visual Studio
+\end{enumerate}
+\subsubsection{Linux}
+\begin{enumerate}
+	\item 
+	\href{https://aka.ms/AzureSphereSDKInstall/Linux}{Descargar el Script de instlacion}
+	\item 
+	Descomprimir el archivo
+	\item 
+	
+	Abrir la terminal en la locación del archivo .sh y ejecutar el siguiente comando:
+	\begin{lstlisting}[language=bash]
+$ sudo ./install_azure_sphere_sdk.sh
+	\end{lstlisting}
+	\item Seguir con el proceso de instalación
+	
+\end{enumerate}

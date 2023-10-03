@@ -1,0 +1,48 @@
+\section{Preparación del kit}
+\subsection{Creación o asignación de un titular}
+La plataforma Azure Sphere es muy estricta con el uso de sus microcontroladores, por lo que antes de desarrollar en ella tenemos que hacer un procedimiento para tenerla lista. Esta plataforma utiliza algo llamado "tenants" (se puede traducir a titulares) que son la forma en que se organiza los permisos a la hora de desarrollar en el kit. Cada microcontrolador solo puede conectarse a un tenant, por lo que se necesita ser muy cuidadoso a la hora de registrarlo.
+
+Primero, en la terminal de tu sistema operativo, deberás de registrar un correo (que use los servicios de Microsoft) a la plataforma: 
+\begin{verbatim}
+	azshpere register-user --new-user <correo-electronico>
+\end{verbatim}
+
+Inicia sesión con el siguiente comando:
+\begin{verbatim}
+	azsphere login
+\end{verbatim}
+
+\subsubsection{Registro del dispositivo}
+\textit{Tener en cuenta que esta operación NO se pude revertir.}
+\linebreak
+\linebreak
+Primero necesitas tener el dispositivo conectado a tu ordenador. Después se necesita ver si tu cuenta no tiene algún tenant disponible, esto se hace con el comando:
+\begin{verbatim}
+	azsphere tenant list
+\end{verbatim}
+Si aparecen uno o varios tenants, solo seria seleccionar uno con el comando:
+\begin{verbatim}
+	azsphere tenant select --tenant <nombre o ID del tenant>
+\end{verbatim}
+
+En el caso de que no salga ninguno tienes dos opciones: pides al administrador de un tenant que agregue tu cuenta y te de un rol con los siguientes comandos:
+\begin{verbatim}
+azsphere register-user --new-user <correo-electronico>
+azsphere role add --role <rol> --user <correo-electronico>
+\end{verbatim}
+o se crea un tenant:
+\begin{verbatim}
+	azsphere tenant create --name <nombre-del-tenant>
+\end{verbatim}
+
+
+\subsubsection{Roles en un tenant}
+\begin{itemize}
+	\item 
+	Administrador: tiene acceso completo a todos los dispositivos y operaciones, también puede añadir o eliminar otros usuarios, se recomienda solo dos cuentas con este rol.
+	\item 
+	Contribuidor: Pueden registrar dispositivos, hacer cambios o implementaciones, pero no eliminar operaciones. Básicamente pueden hacer desarrollo en el kit, pero no administrar el tenant.
+	\item 
+	Lector: Tiene la capacidad de leer la información del tenant, los dispositivos registrados, implementaciones y errores. Este rol es apropiado para el mantenimiento.
+	
+\end{itemize}
