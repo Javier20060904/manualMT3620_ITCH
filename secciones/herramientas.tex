@@ -30,15 +30,25 @@
 \subsubsection{Linux}
 \begin{enumerate}
 	\item 
+	Asegurarse de tener las siguiente dependencias
+	\begin{lstlisting}[language=bash]
+sudo apt-get update
+sudo apt-get install -y net-tools curl cmake ninja-build
+	\end{lstlisting}
+
+	\item 
 	\href{https://aka.ms/AzureSphereSDKInstall/Linux}{Descargar el Script de instlacion}
 	\item 
 	Descomprimir el archivo
-	\item 
-	
+	\item
 	Abrir la terminal en la locación del archivo .sh y ejecutar el siguiente comando:
 	\begin{lstlisting}[language=bash]
-$ sudo ./install_azure_sphere_sdk.sh
+sudo ./install_azure_sphere_sdk.sh
 	\end{lstlisting}
-	\item Seguir con el proceso de instalación
-	
+	\item 
+	Seguir con el proceso de instalación
+	\item 
+	Instalar \href{https://code.visualstudio.com/download}{Visual Studio Code}
+	\item 
+	En VS Code instalar la extensión \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-sphere-tools}{Azure Sphere}
 \end{enumerate}
