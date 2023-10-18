@@ -46,3 +46,50 @@ o se crea un inquilino:
 	Lector: Tiene la capacidad de leer la información del inquilino, los dispositivos registrados, implementaciones y errores. Este rol es apropiado para el mantenimiento.
 	
 \end{itemize}
+
+\subsection{Conectando el MT3620 a Internet}
+Se tiene que conectar el microcontrolador a una red de internet para que pueda recibir actualizaciones y pueda comunicarse al centro de IoT de Azure. Esto se hace a partir de la IDE que estés usando.
+Si quieres comprobar primero que tu microcontrolador este conectado a internet utiliza
+
+\begin{verbatim}
+	azsphere device wifi show-status
+\end{verbatim}
+
+\subsubsection{Visual Studio}
+\begin{itemize}
+	\item
+	Conectas la Azure Sphere a tu computadora.
+	\item 
+	En el menú selecciona Ver > Otra Ventana > Explorador de Azure Sphere.
+	(View > Other Windows > Azure Sphere Explorer)
+	\item 
+	Desglosa el dispositivo del menú. 
+	\item 
+	Expande la sección de Wi-fi.
+	\item 
+	Si en uno de los elementos te indica como desconectado, entonces expande la sección de redes disponibles.
+	\item 
+	Selecciona la red que deseas e ingresa la contraseña.
+\end{itemize}
+
+\subsubsection{Visual Studio Code}
+\begin{itemize}
+	\item
+	Conectas la Azure Sphere a tu computadora.
+	\item 
+	Presiona el botón con el icono de Azure Sphere que esta en la barra lateral.
+	\item 
+	Desglosa el dispositivo del menú. 
+	\item 
+	Expande la sección de Wi-fi.
+	\item 
+	Si en uno de los elementos te indica como desconectado, entonces expande la sección de redes disponibles.
+	\item 
+	Selecciona la red que deseas e ingresa la contraseña.
+\end{itemize}
+
+\subsection{Habilitar desarrollo del microcontrolador}
+Por ultimo tienes que habilitar el modo desarrollador para poder grabar algo en el MCU, esto se hace desde la terminal con el siguiente comando:
+\begin{verbatim}
+azsphere device enable-development
+\end{verbatim}

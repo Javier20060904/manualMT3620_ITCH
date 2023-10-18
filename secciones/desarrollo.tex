@@ -1,0 +1,23 @@
+\section{Desarrollo en la MT3620}
+Esta tablilla tiene dos tipos de aplicaciones que se le pueden desarrollar, la de alto nivel y la de tiempo real. A pesar que sean dos tipos de implementación estas se pueden desarrollar con total comodidad en la IDE que hayas elegido.
+
+
+\subsection{Alto nivel}
+Este tipo de aplicación es requerida en cada dispositivo Azure Sphere, el código corre en el sistema operativo de Azure Sphere, pueden usar librerías de aplicaciones.
+
+Estas pueden:
+\begin{itemize}
+	\item
+	Configurar los periféricos de la Azure Sphere como el GPIO, UARTs y otras interfaces.
+	\item 
+	Comunicarse con las aplicaciones de tiempo real.
+	\item 
+	Comunicarse por medio del internet.
+\end{itemize}
+
+Este es el uso normal del microcontrolador, este tipo solo puede acceder a librerías que permita Microsoft, no tiene permitido el acceso mediante shell o archivos del I/O.
+
+\subsection{Tiempo Real}
+En este tipo de aplicación esta mas cerca del metal, por lo que en este puedes interactuar y configurar con los puertos del microcontrolador, también puedes implementar un sistema operativo en tiempo real y estas aplicaciones pueden comunicarse con las de alto nivel.
+
+
