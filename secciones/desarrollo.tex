@@ -20,4 +20,36 @@ Este es el uso normal del microcontrolador, este tipo solo puede acceder a libre
 \subsection{Tiempo Real}
 En este tipo de aplicación esta mas cerca del metal, por lo que en este puedes interactuar y configurar con los puertos del microcontrolador, también puedes implementar un sistema operativo en tiempo real y estas aplicaciones pueden comunicarse con las de alto nivel.
 
+\section{Definiciones de hardware}
+Desarrollar en este tipo de tarjetas de desarrollo tienen sus beneficios, uno de estos son las definiciones de hardware, estas definen la locación de los periféricos. Ayudan a una mejor compresión en el código, en estas tarjetas hay dos archivos para modificar esto, primero están los especificados por el fabricante, estos ya vienen en el SDK de la Azure Sphere en el directorio \textit{ProgramFiles(x86)\textbackslash Microsoft Azure Sphere SDK\textbackslash HardwareDefinitions} en Windows y \textit{/opt/azurespheresdk/HardwareDefinitions} en Linux. También existen las definiciones de aplicaciones especificas, estas se crean a partir de las especificadas por el fabricante y asigna identificadores que se usan de referencia, así el cambio de una tablilla a otra es mas sencillo.
+Estos archivos estan escritos en json, y su formato es el siguiente.
+\begin{lstlisting}[language = json, firstnumber=1]
+{
+	"Metadata": //Informacion sobre el archivo
+	{
+		"Type": "Azure Sphere Hardware Definition",
+		"Version": 1
+	},
+	"Description": //Informacion sobre la tablilla o modulo
+	{
+		"Name": "<nombre de la tablilla o modulo>",
+		"MainCoreHeaderFileTopContent": [
+		"/* Copyright (c) <vendor name> Todos los derechos reservados.",
+		" <Informacion de alguna licencia> */",
+		"",
+		"// This header contains the peripheral pinout definitions for
+		the",
+		"// <name of board or module>"
+		]
+	},
+	"Imports" : [ {"Path": ""} //Direccion del archivo de definicion de hardware para definir sobre ella
+	],
+	"Peripherals": [ //Los perifericos que se van usar para la aplicacion
+	{"Name": "<Nombre en el codigo>", "Type": "<Tipo de periferico>", "Mapping": "<El nombre del periferico en el archivo importado>", "Comment": "<Informacion a destacar>"},
+	]
+}
+\end{lstlisting}
+
+Para que se genere un header se necesita modificar el archivo "cmakelist.txt" donde se tiene que indicar en la función azsphere\_target\_hardware\_definition, con esto el compilador hará un archivo header donde tenga toda la información del puerto.
+
 
