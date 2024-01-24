@@ -50,6 +50,25 @@ Estos archivos estan escritos en json, y su formato es el siguiente.
 }
 \end{lstlisting}
 
-Para que se genere un header se necesita modificar el archivo "cmakelist.txt" donde se tiene que indicar en la función azsphere\_target\_hardware\_definition, con esto el compilador hará un archivo header donde tenga toda la información del puerto.
+\subsection{Creando el encabezado}
+Después de tener definidas los componentes a utilizar, se puede generar el archivo .h, en la terminal se pone el siguiente comando:
+\begin{verbatim}
+azsphere hardware-definition generate-header --hardware-definition-file
+<filename> 
+\end{verbatim}
+
+\textbf{Nota}: por defecto el archivo encabezado creara una carpeta que siempre sera el subdirectorio de la locación donde se encuentre el archivo JSON.
+\subsection{Declaración de aplicación}
+También conocido como las capacidades de aplicación, es un archivo que indica los recursos a utilizar de la aplicación, cada proyecto debe de tener uno. En esta deben estar todos los puertos y módulos que se van a utilizar de la tarjeta, los recursos se declaran basados en la definición de hardware que se explico anteriormente. Esta declaración siempre se encuentra en el archivo app\_manifest.json
 
 
+\subsection{Usando definiciones de Hardware del SDK}
+\begin{itemize}
+	\item 
+	CMakelists.txt
+	\item 
+	Header
+	\item 
+	Application Manifest
+	
+\end{itemize}
