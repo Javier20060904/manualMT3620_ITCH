@@ -1,0 +1,125 @@
+\section{Drivers}
+\subsection{Alto Nivel}
+El añadir archivos de cabecera y configuraciones en el app manifest es similar entre todos los periféricos.
+\subsubsection{ADC}
+\begin{lstlisting}[language = C, firstnumber=0]
+#include <applibs/adc.h>
+\end{lstlisting}
+\begin{lstlisting}[language = json, firstnumber=0]	
+"Capabilities": 
+{  
+	"Adc": [ "$MACRO_DEL_ADC" ] 
+}
+\end{lstlisting}
+
+\subsubsection{GPIO}
+\begin{lstlisting}[language = C, firstnumber=0]
+#include <applibs/gpio.h>
+\end{lstlisting}
+\begin{lstlisting}[language = json, firstnumber=0]	
+"Capabilities": 
+{  
+	"Gpio": [ "$MACRO_DEL_GPIO" ] 
+}
+\end{lstlisting}
+
+\subsubsection{I2C}
+\begin{lstlisting}[language = C, firstnumber=0]
+#include "applibs_versions.h"
+#include <applibs/i2c.h>
+\end{lstlisting}
+\begin{lstlisting}[language = json, firstnumber=0]		"Capabilities":
+{  
+	"I2C": [ "$MACRO_DEL_I2C" ] 
+}
+\end{lstlisting}
+
+\subsubsection{PWM}
+\begin{lstlisting}[language = C, firstnumber=0]
+#include <applibs/pwm.h>
+\end{lstlisting}
+\begin{lstlisting}[language = json, firstnumber=0]	
+"Capabilities": 
+{  
+	"Pwm": [ "$MACRO_DEL_PWM" ] 
+}
+\end{lstlisting}
+
+\subsubsection{UART}
+\begin{lstlisting}[language = C, firstnumber=0]
+#include "applibs_versions.h"
+#include <applibs/uart.h>
+\end{lstlisting}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": 
+	{  
+		"Uart": [ "$MACRO_DEL_UART" ] 
+	}
+\end{lstlisting}
+
+\subsubsection{SPI}
+\begin{lstlisting}[language = C, firstnumber=0]
+#include "applibs_versions.h"
+#include <applibs/spi.h>
+\end{lstlisting}
+\begin{lstlisting}[language = json, firstnumber=0]	
+"Capabilities": {  
+	"SpiMaster": [ "$MACRO_DEL_SPI_ISU0", $MACRO_DEL_SPI_ISU1" ]
+}
+\end{lstlisting}
+
+\subsection{Tiempo Real}
+Al desarrollar aplicaciones en tiempo real, se utiliza uno de los ARM Cortex M4 que tiene el integrado, ya existen unos \hyperlink{https://github.com/CodethinkLabs/mt3620-m4-drivers/tree/master}{drivers} para la MT3620, o puedes usar los registros de memoria que están documentados (\hyperlink{https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/documents/mt3620/MT3620-Datasheet-v1.7.pdf}{Datasheet},
+\hyperlink{https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/documents/MT3620-M4-User-Manual.pdf}{manual}) por el fabricante.
+
+A la hora de elegir un periférico en el app manifest, es casi lo mismo, ahora para seleccionar un puerto se elige el identificador ``maping'' del archivo mt3620.json (Véase capitulo 6).
+
+\subsubsection{ADC}
+\begin{lstlisting}[language = json, firstnumber=0]	
+"Capabilities": {
+	"Adc": [ "ADC-CONTROLLER-0" ]  }
+\end{lstlisting}
+
+\subsubsection{GPIO}
+\begin{lstlisting}[language = json, firstnumber=0]	
+"Capabilities": {
+	"Gpio": [ 8, 12 ]
+}
+\end{lstlisting}
+
+\subsubsection{I2C}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": {
+		"I2C": [ "ISU0" ]
+	}
+\end{lstlisting}
+
+\subsubsection{I2S}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": {
+		"I2sSubordinate": [ "ISU0" ]
+	}
+\end{lstlisting}
+
+\subsubsection{PWM}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": 
+	{  
+		"Pwm": [ "PWM-CONTROLLER-0" ] 
+	}
+\end{lstlisting}
+
+\subsubsection{SPI}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": {
+		"SpiMaster": [ "ISU0", "ISU1" ] }
+\end{lstlisting}
+
+\subsubsection{UART}
+\begin{lstlisting}[language = json, firstnumber=0]	
+"Capabilities": {
+	"Uart": [ "ISU0" ]
+}
+\end{lstlisting}
+
+

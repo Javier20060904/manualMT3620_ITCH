@@ -56,19 +56,42 @@ Después de tener definidas los componentes a utilizar, se puede generar el arch
 azsphere hardware-definition generate-header --hardware-definition-file
 <filename> 
 \end{verbatim}
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.45]{header}
+	\caption{Ejemplo de archivo header del proyecto blink}
+\end{figure}
 
 \textbf{Nota}: por defecto el archivo encabezado creara una carpeta que siempre sera el subdirectorio de la locación donde se encuentre el archivo JSON.
 \subsection{Declaración de aplicación}
-También conocido como las capacidades de aplicación, es un archivo que indica los recursos a utilizar de la aplicación, cada proyecto debe de tener uno. En esta deben estar todos los puertos y módulos que se van a utilizar de la tarjeta, los recursos se declaran basados en la definición de hardware que se explico anteriormente. Esta declaración siempre se encuentra en el archivo app\_manifest.json
+También conocido como las capacidades de aplicación, es un archivo que indica los recursos a utilizar de la aplicación, cada proyecto debe de tener uno. En esta deben estar todos los puertos y módulos que se van a utilizar de la tarjeta, los recursos se declaran basados en la definición de hardware que se explic\'{o} anteriormente. Esta declaración siempre se encuentra en el archivo app\_manifest.json
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.60]{appmanifest}
+	\caption{Ejemplo app\_manifest.json del proyecto blink}
+\end{figure}
+\subsection{Usando las definiciones del SDK}
 
+\begin{enumerate}
+	\item Se tiene que generar un proyecto en blanco, después en el archivo CMakeList.txt se anade la siguiente linea:
+	\begin{verbatim}
+	azsphere_target_hardware_definition(${PROJECT_NAME} 
+	TARGET_DEFINITION "mt3620_rdb.json") 
+	\end{verbatim}
+	\item 
+	En el archivo main.c incluir el archivo tipo cabecera correspondiente.
+	\begin{lstlisting}[language = C, firstnumber=0]
+#include  "hw/mt3620_rdb.h"
+	\end{lstlisting}
+	\item 
+	Cambiar el application manifest anadiendo el periferico ha utilizar, por ejemplo para usar un GPIO, se pone lo siguiente
+	\begin{lstlisting}[language = json, firstnumber=0]
+"Capabilities": 
+{  
+	"Gpio": [ "$MT3620_RDB_LED1_RED" ] 
+}
+	\end{lstlisting}
+	\item 
+	Compilar el proyecto
+\end{enumerate}
 
-\subsection{Usando definiciones de Hardware del SDK}
-\begin{itemize}
-	\item 
-	CMakelists.txt
-	\item 
-	Header
-	\item 
-	Application Manifest
-	
-\end{itemize}

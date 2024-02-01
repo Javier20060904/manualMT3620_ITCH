@@ -57,21 +57,7 @@
 }
 
 \begin{document}
-	\begin{titlepage}
-		\centering
-		\includegraphics[width=0.15\textwidth]{ITCH}\par\vspace{1cm}
-		{\textsc{INSTITUTO TECNOLÓGICO DE CHIHUAHUA CAMPUS I} \par}
-		\vspace{0.5cm}
-		{\textsc{Laboratorio de Innovación Intel} \par}
-		\vspace{1cm}
-		\vspace{1.5cm}
-		{\huge\bfseries MANUAL DE USUARIO AZURE SPHERE MT3620 \par}
-		\vspace{2cm}
-		{\Large Javier Pérez Macias\par}
-		\vfill
-		% Bottom of the page
-		{\large \today\par}
-	\end{titlepage}
+	\include{secciones/portada}
 	\pagebreak
 	\tableofcontents
 	\include{secciones/introduccion}
@@ -79,7 +65,7 @@
 	\include{secciones/herramientas}
 	\include{secciones/uso}
 	\include{secciones/desarrollo}
-	\bibliographystyle{apalike}
-	\bibliography{./Referencias}
+	\include{secciones/drivers}
+	\include{secciones/referencias}
 	
 \end{document}
