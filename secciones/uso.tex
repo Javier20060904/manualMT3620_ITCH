@@ -1,6 +1,6 @@
 \section{Preparación del kit}
 \subsection{Creación o asignación de un titular}
-La plataforma Azure Sphere es muy estricta con el uso de sus microcontroladores, por lo que antes de desarrollar en ella tenemos que hacer un procedimiento para tenerla lista. Esta plataforma utiliza algo llamado inquilinos (tenants en ingles) que son la forma en que se organiza los permisos a la hora de desarrollar en el kit. Cada microcontrolador solo puede conectarse a un inquilino, por lo que se necesita ser muy cuidadoso a la hora de registrarlo.
+La plataforma Azure Sphere es muy estricta con el uso de sus microcontroladores, por lo que antes de desarrollar en ella tenemos que hacer un procedimiento para tenerla lista. Esta plataforma utiliza algo llamado inquilinos (tenants en inglés), que son la forma en que se organizan los permisos a la hora de desarrollar en el kit. Cada microcontrolador solo puede conectarse a un inquilino, por lo que se necesita ser muy cuidadoso a la hora de registrarlo.
 
 Primero, en la terminal de tu sistema operativo, deberás de registrar un correo (que use los servicios de Microsoft) a la plataforma: 
 \begin{verbatim}
@@ -16,21 +16,21 @@ Inicia sesión con el siguiente comando:
 \textit{Tener en cuenta que esta operación NO se pude revertir.}
 \linebreak
 \linebreak
-Primero necesitas tener el dispositivo conectado a tu ordenador. Después se necesita ver si tu cuenta no tiene algún inquilino disponible, esto se hace con el comando:
+Primero necesitas tener el dispositivo conectado a tu ordenador. Después se necesita ver si tu cuenta no tiene algún inquilino disponible; esto se hace con el comando:
 \begin{verbatim}
 	azsphere tenant list
 \end{verbatim}
-Si aparecen uno o varios inquilinos, solo seria seleccionar uno con el comando:
+Si aparecen uno o varios inquilinos, solo sería seleccionar uno con el comando:
 \begin{verbatim}
 	azsphere tenant select --tenant <nombre o ID del tenant>
 \end{verbatim}
 
-En el caso de que no salga ninguno tienes dos opciones: pides al administrador de un inquilino que agregue tu cuenta y te de un rol con los siguientes comandos:
+En el caso de que no salga ninguno, tienes dos opciones: pides al administrador de un inquilino que agregue tu cuenta y te dé un rol con los siguientes comandos:
 \begin{verbatim}
 azsphere register-user --new-user <correo-electronico>
 azsphere role add --role <rol> --user <correo-electronico>
 \end{verbatim}
-o se crea un inquilino:
+O se crea un inquilino:
 \begin{verbatim}
 	azsphere tenant create --name <nombre-del-tenant>
 \end{verbatim}
@@ -39,9 +39,9 @@ o se crea un inquilino:
 \subsubsection{Roles en un inquilino}
 \begin{itemize}
 	\item 
-	Administrador: tiene acceso completo a todos los dispositivos y operaciones, también puede añadir o eliminar otros usuarios, se recomienda solo dos cuentas con este rol.
+	Administrador: tiene acceso completo a todos los dispositivos y operaciones, también puede añadir o eliminar a otros usuarios. Se recomienda solo dos cuentas con este rol.
 	\item 
-	Contribuidor: Pueden registrar dispositivos, hacer cambios o implementaciones, pero no eliminar operaciones. Básicamente pueden hacer desarrollo en el kit, pero no administrar el inquilino.
+	Contribuidor: Pueden registrar dispositivos, hacer cambios o implementaciones, pero no eliminar operaciones. Básicamente, pueden hacer desarrollo en el kit, pero no administrar el inquilino.
 	\item 
 	Lector: Tiene la capacidad de leer la información del inquilino, los dispositivos registrados, implementaciones y errores. Este rol es apropiado para el mantenimiento.
 	
@@ -49,7 +49,7 @@ o se crea un inquilino:
 
 \subsection{Conectando el MT3620 a Internet}
 Se tiene que conectar el microcontrolador a una red de internet para que pueda recibir actualizaciones y pueda comunicarse al centro de IoT de Azure. Esto se hace a partir de la IDE que estés usando.
-Si quieres comprobar primero que tu microcontrolador este conectado a internet utiliza
+Si quieres comprobar primero que tu microcontrolador este conectado a internet utiliza:
 
 \begin{verbatim}
 	azsphere device wifi show-status
@@ -89,7 +89,7 @@ Si quieres comprobar primero que tu microcontrolador este conectado a internet u
 \end{itemize}
 
 \subsection{Habilitar desarrollo del microcontrolador}
-Por ultimo tienes que habilitar el modo desarrollador para poder grabar algo en el MCU, esto se hace desde la terminal con el siguiente comando:
+Por último tienes que habilitar el modo desarrollador para poder grabar algo en el MCU. Esto se hace desde la terminal con el siguiente comando:
 \begin{verbatim}
 azsphere device enable-development
 \end{verbatim}

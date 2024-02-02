@@ -1,9 +1,9 @@
 \section{Desarrollo en la MT3620}
-Esta tablilla tiene dos tipos de aplicaciones que se le pueden desarrollar, la de alto nivel y la de tiempo real. A pesar que sean dos tipos de implementación estas se pueden desarrollar con total comodidad en la IDE que hayas elegido.
+Esta tablilla tiene dos tipos de aplicaciones que se le pueden desarrollar: la de alto nivel y la de tiempo real. A pesar de que sean dos tipos de implementación, estas se pueden desarrollar con total comodidad en la IDE que hayas elegido.
 
 
 \subsection{Alto nivel}
-Este tipo de aplicación es requerida en cada dispositivo Azure Sphere, el código corre en el sistema operativo de Azure Sphere, pueden usar librerías de aplicaciones.
+Este tipo de aplicación es requerida en cada dispositivo Azure Sphere. El código corre en el sistema operativo de Azure Sphere. Puedes usar librerías de aplicaciones.
 
 Estas pueden:
 \begin{itemize}
@@ -12,17 +12,17 @@ Estas pueden:
 	\item 
 	Comunicarse con las aplicaciones de tiempo real.
 	\item 
-	Comunicarse por medio del internet.
+	Comunicarse por medio del Internet.
 \end{itemize}
 
-Este es el uso normal del microcontrolador, este tipo solo puede acceder a librerías que permita Microsoft, no tiene permitido el acceso mediante shell o archivos del I/O.
+Este es el uso normal del microcontrolador. Este tipo solo puede acceder a librerías que permita Microsoft, no tiene permitido el acceso mediante shell o archivos del I/O.
 
 \subsection{Tiempo Real}
-En este tipo de aplicación esta mas cerca del metal, por lo que en este puedes interactuar y configurar con los puertos del microcontrolador, también puedes implementar un sistema operativo en tiempo real y estas aplicaciones pueden comunicarse con las de alto nivel.
+En este tipo de aplicación está más cerca del metal, por lo que en este puedes interactuar y configurar con los puertos del microcontrolador. También puedes implementar un sistema operativo en tiempo real y estas aplicaciones pueden comunicarse con las de alto nivel.
 
 \section{Definiciones de hardware}
-Desarrollar en este tipo de tarjetas de desarrollo tienen sus beneficios, uno de estos son las definiciones de hardware, estas definen la locación de los periféricos. Ayudan a una mejor compresión en el código, en estas tarjetas hay dos archivos para modificar esto, primero están los especificados por el fabricante, estos ya vienen en el SDK de la Azure Sphere en el directorio \textit{ProgramFiles(x86)\textbackslash Microsoft Azure Sphere SDK\textbackslash HardwareDefinitions} en Windows y \textit{/opt/azurespheresdk/HardwareDefinitions} en Linux. También existen las definiciones de aplicaciones especificas, estas se crean a partir de las especificadas por el fabricante y asigna identificadores que se usan de referencia, así el cambio de una tablilla a otra es mas sencillo.
-Estos archivos estan escritos en json, y su formato es el siguiente.
+Desarrollar en este tipo de tarjetas de desarrollo tiene sus beneficios, uno de estos son las definiciones de hardware, estas definen la locación de los periféricos. Ayudan a una mejor compresión en el código, en estas tarjetas hay dos archivos para modificar esto, primero están los especificados por el fabricante, estos ya vienen en el SDK de la Azure Sphere en el directorio \textit{ProgramFiles(x86)\textbackslash Microsoft Azure Sphere SDK\textbackslash HardwareDefinitions} en Windows y \textit{/opt/azurespheresdk/HardwareDefinitions} en Linux. También existen las definiciones de aplicaciones especificas, estas se crean a partir de las especificadas por el fabricante y asignan identificadores que se usan de referencia, así el cambio de una tablilla a otra es más sencillo.
+Estos archivos están escritos en json, y su formato es el siguiente.
 \begin{lstlisting}[language = json, firstnumber=1]
 {
 	"Metadata": //Informacion sobre el archivo
@@ -62,9 +62,9 @@ azsphere hardware-definition generate-header --hardware-definition-file
 	\caption{Ejemplo de archivo header del proyecto blink}
 \end{figure}
 
-\textbf{Nota}: por defecto el archivo encabezado creara una carpeta que siempre sera el subdirectorio de la locación donde se encuentre el archivo JSON.
+\textbf{Nota}: por defecto, el archivo encabezado creará una carpeta que siempre será el subdirectorio de la locación donde se encuentre el archivo JSON.
 \subsection{Declaración de aplicación}
-También conocido como las capacidades de aplicación, es un archivo que indica los recursos a utilizar de la aplicación, cada proyecto debe de tener uno. En esta deben estar todos los puertos y módulos que se van a utilizar de la tarjeta, los recursos se declaran basados en la definición de hardware que se explic\'{o} anteriormente. Esta declaración siempre se encuentra en el archivo app\_manifest.json
+También conocido como las capacidades de aplicación, es un archivo que indica los recursos a utilizar de la aplicación, cada proyecto debe de tener uno. En esta deben estar todos los puertos y módulos que se van a utilizar de la tarjeta, los recursos se declaran basados en la definición de hardware que se explicó anteriormente. Esta declaración siempre se encuentra en el archivo app\_manifest.json
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale=.60]{appmanifest}
