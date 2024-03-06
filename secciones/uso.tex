@@ -1,6 +1,12 @@
 \section{Preparación del kit}
 \subsection{Creación o asignación de un titular}
-La plataforma Azure Sphere es muy estricta con el uso de sus microcontroladores, por lo que antes de desarrollar en ella tenemos que hacer un procedimiento para tenerla lista. Esta plataforma utiliza algo llamado inquilinos (tenants en inglés), que son la forma en que se organizan los permisos a la hora de desarrollar en el kit. Cada microcontrolador solo puede conectarse a un inquilino, por lo que se necesita ser muy cuidadoso a la hora de registrarlo.
+La plataforma Azure Sphere es muy estricta con el uso de sus microcontroladores, por lo que antes de desarrollar en ella tenemos que hacer un procedimiento para tenerla lista. Esta plataforma utiliza algo llamado inquilinos (tenants en inglés), que son la forma en que se organizan los permisos a la hora de desarrollar en el kit, en este inquilino, múltiples usuarios pueden estar conectados para desarrollar en las tarjetas que estén registradas. Cada microcontrolador solo puede conectarse a un inquilino, por lo que se necesita ser muy cuidadoso a la hora de registrarlo.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale = 1.25]{tenant}
+	\caption{Organización de desarrollo}
+\end{figure}
 
 Primero, en la terminal de tu sistema operativo, deberás de registrar un correo (que use los servicios de Microsoft) a la plataforma: 
 \begin{verbatim}
@@ -34,6 +40,7 @@ O se crea un inquilino:
 \begin{verbatim}
 	azsphere tenant create --name <nombre-del-tenant>
 \end{verbatim}
+Al crear un nuevo inquilino, tu usuario tendrá el rol de administrador por defecto.
 
 
 \subsubsection{Roles en un inquilino}
@@ -62,26 +69,41 @@ Si quieres comprobar primero que tu microcontrolador este conectado a internet u
 	\item 
 	En el menú selecciona Ver $\rightarrow$ Otra Ventana $\rightarrow$ Explorador de Azure Sphere.
 	(View $\rightarrow$ Other Windows $\rightarrow$ Azure Sphere Explorer)
+	
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VS2}
+	\pagebreak
 	\item 
 	Desglosa el dispositivo del menú. 
+	
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VS3}
+	\pagebreak
 	\item 
 	Expande la sección de Wi-fi.
+
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VS4}
 	\item 
 	Si en uno de los elementos te indica como desconectado, entonces expande la sección de redes disponibles.
 	\item 
 	Selecciona la red que deseas e ingresa la contraseña.
 \end{itemize}
-
+\pagebreak
 \subsubsection{Visual Studio Code}
 \begin{itemize}
 	\item
 	Conectas la Azure Sphere a tu computadora.
 	\item 
 	Presiona el botón con el icono de Azure Sphere que esta en la barra lateral.
+	
+	\includegraphics[scale = 0.5]{VSCode2}
+	\pagebreak
 	\item 
 	Desglosa el dispositivo del menú. 
+
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VSCode3}
 	\item 
 	Expande la sección de Wi-fi.
+
+	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VSCode4}
 	\item 
 	Si en uno de los elementos te indica como desconectado, entonces expande la sección de redes disponibles.
 	\item 

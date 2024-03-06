@@ -17,6 +17,7 @@
 
 \subsection{Instalación}
 \subsubsection{Windows}
+\subsubsection*{Visual Studio}
 \begin{enumerate}
 	\item 
 	Conectar el microcontrolador, Windows automaticamente instalara los drivers necesarios (En caso de que no se puede usar los drivers de \href{https://www.ftdichip.com/Drivers/VCP.htm}{FTDI})
@@ -27,7 +28,27 @@
 	\item 
 	Instalar la extensión de \href{https://marketplace.visualstudio.com/items?itemName=AzureSphereTeam.AzureSphereSDKforVisualStudio2022}{Azure Sphere} para Visual Studio
 \end{enumerate}
+\subsubsection*{Visual Studio Code}
+\begin{enumerate}
+	\item 
+	Conectar el microcontrolador, Windows automaticamente instalara los drivers necesarios (En caso de que no se puede usar los drivers de \href{https://www.ftdichip.com/Drivers/VCP.htm}{FTDI})
+	\item 
+	Instalar el \href{https://aka.ms/AzureSphereSDKDownload/Windows}{SDK}
+	\item 
+	Instalar \href{https://code.visualstudio.com/}{Visual Studio Code}
+	\item 
+	Instalar \href{https://cmake.org/download/}{CMake}
+	\item 
+	Descargar \href{https://github.com/ninja-build/ninja/releases}{ninja}
+	\item 
+	Añadir los ejecutables de CMake y Ninja a la \href{https://stackoverflow.com/questions/44272416/how-to-add-a-folder-to-path-environment-variable-in-windows-10-with-screensho}{ruta del sistema} 
+	\item 
+	En VS Code instalar la extensión \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-sphere-tools}{Azure Sphere}
+	\item Instalar la extensión de \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools}{C/C++} y \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools}{CMake}
+\end{enumerate}
+
 \subsubsection{Linux}
+\subsubsection*{Visual Studio Code}
 \begin{enumerate}
 	\item 
 	Asegurarse de tener las siguiente dependencias
@@ -51,4 +72,5 @@ sudo ./install_azure_sphere_sdk.sh
 	Instalar \href{https://code.visualstudio.com/download}{Visual Studio Code}
 	\item 
 	En VS Code instalar la extensión \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-sphere-tools}{Azure Sphere}
+	\item Instalar la extensión de \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools}{C/C++} y \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools}{CMake}
 \end{enumerate}
