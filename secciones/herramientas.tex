@@ -39,9 +39,11 @@
 	\item 
 	Instalar \href{https://cmake.org/download/}{CMake}
 	\item 
-	Descargar \href{https://github.com/ninja-build/ninja/releases}{ninja}
+	Instalar \href{https://developer.arm.com/downloads/-/gnu-rm}{GNU Arm Embedded Toolchain}
 	\item 
-	Añadir los ejecutables de CMake y Ninja a la \href{https://stackoverflow.com/questions/44272416/how-to-add-a-folder-to-path-environment-variable-in-windows-10-with-screensho}{ruta del sistema} 
+	Descargar \href{https://github.com/ninja-build/ninja/releases}{Ninja}
+	\item 
+	Añadir los ejecutables de CMake, Ninja y GNU Arm Embedded Toolchain a la \href{https://stackoverflow.com/questions/44272416/how-to-add-a-folder-to-path-environment-variable-in-windows-10-with-screensho}{ruta del sistema} 
 	\item 
 	En VS Code instalar la extensión \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-sphere-tools}{Azure Sphere}
 	\item Instalar la extensión de \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools}{C/C++} y \href{https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools}{CMake}
@@ -54,9 +56,8 @@
 	Asegurarse de tener las siguiente dependencias
 	\begin{lstlisting}[language=bash]
 sudo apt-get update
-sudo apt-get install -y net-tools curl cmake ninja-build
+sudo apt-get install -y net-tools curl cmake ninja-build gcc-arm-none-eabi
 	\end{lstlisting}
-
 	\item 
 	\href{https://aka.ms/AzureSphereSDKInstall/Linux}{Descargar el Script de instlacion}
 	\item 
