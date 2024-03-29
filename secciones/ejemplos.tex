@@ -1,8 +1,20 @@
 \section{Ejemplos}
-A continuación se mostraran unos códigos de ejemplo para el uso de esta tarjeta, todos estos vienen en el mismo repositorio.
-\subsection{ejemplo\textunderscore HL}
-\lstinputlisting[language=C, firstline=15, caption={main.c}]{../ejemplo_HL/main.c}
-\lstinputlisting[language=C, firstline=30,caption={adc.c}]{../ejemplo_HL/modules/adc.c}
-\lstinputlisting[language=C, firstline=35, caption={gpio.c}]{../ejemplo_HL/modules/gpio.c}
-\lstinputlisting[language=C, firstline=24, caption={uart.c}]{../ejemplo_HL/modules/uart.c}
+\subsection{Diagrama de conexiones}
+Para el correcto funcionamiento de estos ejemplos, primero se tiene que hacer las siguientes conexiones:
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=.40]{DiagramaDeConexion}
+	\caption{Diagrama de conexiones.}
+\end{figure}
+\linebreak
+El potenciómetro hará que varié la lectura del ADC. El ESP32 se está usando como un UART a USB, lo necesitas conectar a una computadora y leerlo en una terminal serial. Este nos dará los mensajes que envié el MT3620. El ESP32 se puede reemplazar por adaptadores UART a USB si se desea.
+\pagebreak
+\subsection{Códigos}
+\begin{itemize}
+	\item 
+	\href{https://github.com/Javier20060904/ejemplo_HL}{ejemplo\textunderscore HL}: Este programa consiste en el uso de ADC, GPIO y UART usando las API's de Azure Sphere en alto nivel.
+	\item
+	\href{URL}{ejemplo\textunderscore RT}
+\end{itemize}
+
 

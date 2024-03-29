@@ -1,54 +1,50 @@
-\section{Drivers}
-\subsection{Alto Nivel}
-El añadir archivos de cabecera y configuraciones en el app manifest es similar entre todos los periféricos.
-\subsubsection{ADC}
+\section{Perifericos}
+En esta seccion se mostrara algunas especificaciones del periferico y el como anadirlos en los archivos de cabecera y configuraciones en el app manifest.\par
+Al desarrollar aplicaciones en RT, se utiliza uno de los ARM Cortex M4 que tiene el integrado. Ya existen unos \href{https://github.com/CodethinkLabs/mt3620-m4-drivers/tree/master}{drivers} para la MT3620, o puedes usar los registros de memoria que están documentados (\href{https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/documents/mt3620/MT3620-Datasheet-v1.7.pdf}{datasheet} y
+\href{https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/documents/MT3620-M4-User-Manual.pdf}{manual}) por el fabricante. A la hora de elegir un periférico en el app manifest, es casi lo mismo. Ahora, para seleccionar un puerto, se elige el identificador ``maping'' del archivo mt3620.json (véase capítulo 6).
+
+
+\subsection{GPIO}
+\subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
-#include <applibs/adc.h>
+	#include <applibs/gpio.h>
 \end{lstlisting}
 \begin{lstlisting}[language = json, firstnumber=0]	
-"Capabilities": 
-{  
-	"Adc": [ "$MACRO_DEL_ADC" ] 
-}
+	"Capabilities": 
+	{  
+		"Gpio": [ "$MACRO_DEL_GPIO" ] 
+	}
+\end{lstlisting}
+\subsubsection{RT}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": {
+		"Gpio": [ 8, 12 ]
+	}
 \end{lstlisting}
 
-\subsubsection{GPIO}
+\subsection{ADC}
+Ocho canales de 12 bits, usando un voltaje de referencia a 2.5 V internos o 1.8 V externos.
+\subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
-#include <applibs/gpio.h>
+	#include <applibs/adc.h>
 \end{lstlisting}
 \begin{lstlisting}[language = json, firstnumber=0]	
-"Capabilities": 
-{  
-	"Gpio": [ "$MACRO_DEL_GPIO" ] 
-}
+	"Capabilities": 
+	{  
+		"Adc": [ "$MACRO_DEL_ADC" ] 
+	}
 \end{lstlisting}
-
-\subsubsection{I2C}
-\begin{lstlisting}[language = C, firstnumber=0]
-#include "applibs_versions.h"
-#include <applibs/i2c.h>
-\end{lstlisting}
-\begin{lstlisting}[language = json, firstnumber=0]		"Capabilities":
-{  
-	"I2C": [ "$MACRO_DEL_I2C" ] 
-}
-\end{lstlisting}
-
-\subsubsection{PWM}
-\begin{lstlisting}[language = C, firstnumber=0]
-#include <applibs/pwm.h>
-\end{lstlisting}
+\subsubsection{RT}
 \begin{lstlisting}[language = json, firstnumber=0]	
-"Capabilities": 
-{  
-	"Pwm": [ "$MACRO_DEL_PWM" ] 
-}
+	"Capabilities": {
+		"Adc": [ "ADC-CONTROLLER-0" ]  }
 \end{lstlisting}
 
-\subsubsection{UART}
+\subsection{UART}
+\subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
-#include "applibs_versions.h"
-#include <applibs/uart.h>
+	#include "applibs_versions.h"
+	#include <applibs/uart.h>
 \end{lstlisting}
 \begin{lstlisting}[language = json, firstnumber=0]	
 	"Capabilities": 
@@ -56,52 +52,25 @@ El añadir archivos de cabecera y configuraciones en el app manifest es similar 
 		"Uart": [ "$MACRO_DEL_UART" ] 
 	}
 \end{lstlisting}
+\subsubsection{RT}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": {
+		"Uart": [ "ISU0" ]
+	}
+\end{lstlisting}
 
-\subsubsection{SPI}
+\subsection{PWM}
+\subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
-#include "applibs_versions.h"
-#include <applibs/spi.h>
+	#include <applibs/pwm.h>
 \end{lstlisting}
 \begin{lstlisting}[language = json, firstnumber=0]	
-"Capabilities": {  
-	"SpiMaster": [ "$MACRO_DEL_SPI_ISU0", $MACRO_DEL_SPI_ISU1" ]
-}
-\end{lstlisting}
-
-\subsection{Tiempo Real}
-Al desarrollar aplicaciones en tiempo real, se utiliza uno de los ARM Cortex M4 que tiene el integrado. Ya existen unos \href{https://github.com/CodethinkLabs/mt3620-m4-drivers/tree/master}{drivers} para la MT3620, o puedes usar los registros de memoria que están documentados (\href{https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/documents/mt3620/MT3620-Datasheet-v1.7.pdf}{datasheet} y
-\href{https://d86o2zu8ugzlg.cloudfront.net/mediatek-craft/documents/MT3620-M4-User-Manual.pdf}{manual}) por el fabricante.
-
-A la hora de elegir un periférico en el app manifest, es casi lo mismo. Ahora, para seleccionar un puerto, se elige el identificador ``maping'' del archivo mt3620.json (véase capítulo 6).
-
-\subsubsection{ADC}
-\begin{lstlisting}[language = json, firstnumber=0]	
-"Capabilities": {
-	"Adc": [ "ADC-CONTROLLER-0" ]  }
-\end{lstlisting}
-
-\subsubsection{GPIO}
-\begin{lstlisting}[language = json, firstnumber=0]	
-"Capabilities": {
-	"Gpio": [ 8, 12 ]
-}
-\end{lstlisting}
-
-\subsubsection{I2C}
-\begin{lstlisting}[language = json, firstnumber=0]	
-	"Capabilities": {
-		"I2C": [ "ISU0" ]
+	"Capabilities": 
+	{  
+		"Pwm": [ "$MACRO_DEL_PWM" ] 
 	}
 \end{lstlisting}
-
-\subsubsection{I2S}
-\begin{lstlisting}[language = json, firstnumber=0]	
-	"Capabilities": {
-		"I2sSubordinate": [ "ISU0" ]
-	}
-\end{lstlisting}
-
-\subsubsection{PWM}
+\subsubsection{RT}
 \begin{lstlisting}[language = json, firstnumber=0]	
 	"Capabilities": 
 	{  
@@ -109,17 +78,37 @@ A la hora de elegir un periférico en el app manifest, es casi lo mismo. Ahora, 
 	}
 \end{lstlisting}
 
-\subsubsection{SPI}
+\subsection{SPI}
+\subsubsection{HL}
+\begin{lstlisting}[language = C, firstnumber=0]
+	#include "applibs_versions.h"
+	#include <applibs/spi.h>
+\end{lstlisting}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": {  
+		"SpiMaster": [ "$MACRO_DEL_SPI_ISU0", $MACRO_DEL_SPI_ISU1" ]
+	}
+\end{lstlisting}
+\subsubsection{RT}
 \begin{lstlisting}[language = json, firstnumber=0]	
 	"Capabilities": {
 		"SpiMaster": [ "ISU0", "ISU1" ] }
 \end{lstlisting}
 
-\subsubsection{UART}
-\begin{lstlisting}[language = json, firstnumber=0]	
-"Capabilities": {
-	"Uart": [ "ISU0" ]
-}
+\subsection{I2C}
+\subsubsection{HL}
+\begin{lstlisting}[language = C, firstnumber=0]
+	#include "applibs_versions.h"
+	#include <applibs/i2c.h>
 \end{lstlisting}
-
-
+\begin{lstlisting}[language = json, firstnumber=0]		"Capabilities":
+	{  
+		"I2C": [ "$MACRO_DEL_I2C" ] 
+	}
+\end{lstlisting}
+\subsubsection{RT}
+\begin{lstlisting}[language = json, firstnumber=0]	
+	"Capabilities": {
+		"I2C": [ "ISU0" ]
+	}
+\end{lstlisting}
