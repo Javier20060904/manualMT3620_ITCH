@@ -5,7 +5,9 @@ Al desarrollar aplicaciones en RT, se utiliza uno de los ARM Cortex M4 que tiene
 
 
 \subsection{GPIO}
+La plataforma contiene 76 pines programables, algunos están multiplexados con otras funciones.
 \subsubsection{HL}
+
 \begin{lstlisting}[language = C, firstnumber=0]
 	#include <applibs/gpio.h>
 \end{lstlisting}
@@ -23,7 +25,7 @@ Al desarrollar aplicaciones en RT, se utiliza uno de los ARM Cortex M4 que tiene
 \end{lstlisting}
 
 \subsection{ADC}
-Ocho canales de 12 bits, usando un voltaje de referencia a 2.5 V internos o 1.8 V externos.
+La plataforma contiene 8 canales de 12 bits, usando un voltaje de referencia a 2.5 V internos o 1.8 V externos.
 \subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
 	#include <applibs/adc.h>
@@ -41,6 +43,7 @@ Ocho canales de 12 bits, usando un voltaje de referencia a 2.5 V internos o 1.8 
 \end{lstlisting}
 
 \subsection{UART}
+La plataforma contiene 5 interfaces seriales que pueden ser configuradas como UART y 2 UART dedicadas, a una velocidad de hasta 3Mbps.
 \subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
 	#include "applibs_versions.h"
@@ -60,6 +63,7 @@ Ocho canales de 12 bits, usando un voltaje de referencia a 2.5 V internos o 1.8 
 \end{lstlisting}
 
 \subsection{PWM}
+La plataforma contiene 12 Salidas PWM.
 \subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
 	#include <applibs/pwm.h>
@@ -79,6 +83,7 @@ Ocho canales de 12 bits, usando un voltaje de referencia a 2.5 V internos o 1.8 
 \end{lstlisting}
 
 \subsection{SPI}
+La plataforma contiene 5 interfaces seriales que pueden ser configuradas como SPI maestro o esclavo, a una velocidad de hasta 40MHz.
 \subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
 	#include "applibs_versions.h"
@@ -96,6 +101,7 @@ Ocho canales de 12 bits, usando un voltaje de referencia a 2.5 V internos o 1.8 
 \end{lstlisting}
 
 \subsection{I2C}
+La plataforma contiene 5 interfaces seriales que pueden ser configuradas como I2C maestro o esclavo, a una velocidad de hasta 1MHz.
 \subsubsection{HL}
 \begin{lstlisting}[language = C, firstnumber=0]
 	#include "applibs_versions.h"
