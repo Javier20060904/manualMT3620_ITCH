@@ -2,3 +2,4 @@
 # Azure Sphere MT3620
 ## Laboratorio de innovacion Intel
 ## ITCH I
+## JAVIER PEREZ M.
