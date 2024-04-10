@@ -5,7 +5,7 @@ La plataforma Azure Sphere es muy estricta con el uso de sus microcontroladores,
 \begin{figure}[h]
 	\centering
 	\includegraphics[scale = 1.25]{tenant}
-	\caption{Organización de desarrollo}
+	\caption{Organización de desarrollo.}
 \end{figure}
 
 Primero, en la terminal de tu sistema operativo, deberás de registrar un correo (que use los servicios de Microsoft) a la plataforma: 
@@ -70,17 +70,31 @@ Si quieres comprobar primero que tu microcontrolador este conectado a internet u
 	En el menú selecciona Ver $\rightarrow$ Otra Ventana $\rightarrow$ Explorador de Azure Sphere.
 	(View $\rightarrow$ Other Windows $\rightarrow$ Azure Sphere Explorer)
 	
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VS2}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.75\textwidth,height=\textheight,keepaspectratio]{VS2}
+		\caption{Menú de la pestaña.}
+	\end{figure}
+
 	\pagebreak
 	\item 
 	Desglosa el dispositivo del menú. 
-	
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VS3}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.65\textwidth,height=\textheight,keepaspectratio]{VS3}
+		\caption{Menú del dispositivo.}
+	\end{figure}
+
 	\pagebreak
 	\item 
-	Expande la sección de Wi-fi.
+	Expande la sección de Wi-Fi.
 
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VS4}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VS4}
+		\caption{Sección de Wi-Fi del menú.}
+	\end{figure}
+
 	\item 
 	Si en uno de los elementos te indica como desconectado, entonces expande la sección de redes disponibles.
 	\item 
@@ -93,20 +107,33 @@ Si quieres comprobar primero que tu microcontrolador este conectado a internet u
 	Conectas la Azure Sphere a tu computadora.
 	\item 
 	Presiona el botón de Ver $\rightarrow$ Abrir Vista... . (View $\rightarrow$ Open View...)
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VSCode2}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth,height=\textheight,keepaspectratio]{VSCode2}
+	\caption{Menú de la pestaña.}
+	\end{figure}
 	\item 
 	Escriba la palabra Azure y seleccione Azure Sphere Explorer; aparecerá un menú en la sección lateral del VSCode.  
-	\linebreak
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VSCode2-5}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth,height=\textheight,keepaspectratio]{VSCode2-5}
+	\caption{Ventana de comandos.}
+	\end{figure}
 	\pagebreak
 	\item 
 	Desglosa el dispositivo del menú. 
-
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VSCode3}
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=.75\textwidth,height=\textheight,keepaspectratio]{VSCode3}
+	\caption{Menú del dispositivo.}
+	\end{figure}
 	\item 
-	Expande la sección de Wi-fi.
-
-	\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{VSCode4}
+	Expande la sección de Wi-Fi.
+	\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.75\textwidth,height=\textheight,keepaspectratio]{VSCode4}
+	\caption{Sección de Wi-Fi del menú.}
+	\end{figure}
 	\item 
 	Si en uno de los elementos te indica como desconectado, entonces expande la sección de redes disponibles.
 	\item 
@@ -119,4 +146,5 @@ Por último tienes que habilitar el modo desarrollador para poder grabar algo en
 azsphere device enable-development
 \end{verbatim}
 
-\subsection{Compilar y cargar un programa al MC}
+%\subsection{Compilar y cargar un programa al MC}
+%En el editor, primero cargar un proyecto cualquiera, puede ser uno de los que provee el SDK.
